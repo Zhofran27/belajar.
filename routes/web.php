@@ -17,7 +17,11 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        "name" => "Muhammad Zhofran",
+        "email" => "zhofran275@gmail.com",
+        "image" => "zee.jpg"
+    ]);
 });
 Route::get('/blog', function () {
     return view('posts');
