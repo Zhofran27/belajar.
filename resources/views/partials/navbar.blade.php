@@ -16,10 +16,25 @@
                 <a class="nav-link  {{ ($title === "Posts") ? 'active' : '' }}" href="/blog">Blog</a>
               </li>
             </ul>
+
+
             <ul class="navbar-nav ms-auto">
+            @auth
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Welcome back, {{ auth()->user()->name }}
+               </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                </ul>
+             </li>
+            @else
               <li class="nav-item">
-                <a href="/login" class="nav-link" {{ ($active === "login") ? 'active' : '' }}><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                <a href="/login" class="nav-link" {{ ($title === "login") ? 'active' : '' }}><i class="bi bi-box-arrow-in-right"></i> Login</a>
               </li>
+              @endauth
             </ul> 
           </div>
         </div>
